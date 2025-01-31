@@ -18,8 +18,7 @@ except FileNotFoundError:
 st.set_page_config(
     page_title="Diabetes Prediction App",
     layout="centered",
-    initial_sidebar_state="expanded",
-    theme="dark"
+    initial_sidebar_state="expanded"
 )
 
 # App title
@@ -41,13 +40,24 @@ age = st.sidebar.number_input("Age", min_value=0, max_value=120, value=30, step=
 if st.button("Predict"):
     try:
         # prepare input data for prediction
-        input_data = np.array([[pregnancies, glucose, blood_pressure, 
-        skin_thickness, insulin, bmi, diabetes_pedigree_function, age]])
+        input_data = pd.DataFrame({
+            'Pregnancies': [pregnancies],
+            'Glucose': [glucose],
+            'BloodPressure':[blood_pressure],
+            'SkinThickness': [skin_thickness],
+            'Insulin' : [insulin],
+            'BMI': [bmi],
+            'DiabetesPedigreeFunction': [diabetes_pedigree_function],
+            'Age':[age]
+        })
+
+
+
 
         # make prediction
         if hasattr(model, 'predict_proba'):
             prediction = model.predict(input_data)
-            probability = model.predcit_proba(input_data)[0][1]
+            probability = model.predict_proba(input_data)[0][1]
 
             if prediction[0] == 1:
                 st.error(f"Patient Has diabetess. Probability: {probability:.2%}")
