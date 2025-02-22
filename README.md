@@ -1,4 +1,4 @@
-Patient Diabetes Prediction.  
+## **Patient Diabetes Prediction.**  
 
 ### **Background & Objectives**  
 ---
