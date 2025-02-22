@@ -1,7 +1,4 @@
-<p style="text-align: center;">PATIENT DIABETES PREDICTION</p>
-
-
-## **Patient Diabetes Prediction.**  
+## **PATIENT DIABETES PREDICTION.**  
 ---
 
 ### **Background & Objectives**  
